@@ -15,10 +15,10 @@ class CreateMachinesTable extends Migration
     {
         Schema::create('machines', function (Blueprint $table) {
             $table->id();
+            $table->string('photo');
             $table->string('name');
             $table->string('type');
             $table->string('notes')->nullable();
-
             $table->timestamps();
         });
     }

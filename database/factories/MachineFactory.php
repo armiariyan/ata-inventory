@@ -15,6 +15,7 @@ class MachineFactory extends Factory
     public function definition()
     {
         return [
+            'photo' => $this->faker->imageUrl(150, 150, 'machines', true),
             'name' => $this->faker->name(),
             'type' => $this->faker->colorName(),
             'notes' => $this->faker ->sentence(15),
