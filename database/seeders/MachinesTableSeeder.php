@@ -13,6 +13,6 @@ class MachinesTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Machine::factory(5)->create();
+        \App\Models\Machine::factory(10)->create();
     }
 }

@@ -1,5 +1,21 @@
 <div>
-    {{-- Do your work, then step back. --}}
+
+    @if (session()->has('message'))
+    <div class="alert alert-success fw-bold alert-dismissible fade show fs-5">
+        {{ session('message') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    @endif
+
+    {{-- Connect to Machine Create --}}
+    @livewire('machine-create')
+
+    {{-- Title --}}
+    <h4 class="text-end py-3"> <span class="badge rounded-pill bg-primary ">Manage Machine Data</span>  </h4>
+
+   
+
     <table class="table table-striped table-hover table-bordered">
         <thead class="">
             <tr>
