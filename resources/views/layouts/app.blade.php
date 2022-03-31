@@ -91,12 +91,12 @@
                           </li>
                         <li class="nav-item ">
                             <a class="nav-link fw-bold 
-                            {{ (request()->is('materials*')) ? 'active' : '' }}" aria-current="page" href="#">Material</a>
+                            {{ (request()->is('materials*')) ? 'active' : '' }}" aria-current="page" href="{{ route('material.home') }}">Material</a>
                           </li>
-                        <li class="nav-item ">
+                        {{-- <li class="nav-item ">
                             <a class="nav-link fw-bold 
-                            {{ (request()->is('products*')) ? 'active' : '' }}" aria-current="page" href="#">Products</a>
-                          </li>
+                            {{ (request()->is('products*')) ? 'active' : '' }}" aria-current="page" href="{{ route('product.home') }}">Products</a>
+                          </li> --}}
                     </ul>
 
                     <!-- Right Side Of Navbar -->
