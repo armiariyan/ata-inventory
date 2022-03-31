@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MachineController;
+use App\Http\Controllers\MoldingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/machines', [MachineController::class, 'index'])->name('machine.home');
-Route::get('/machine/{id}', [MachineController::class, 'show'])->name('machine.details');
-Route::get('/machine/{id}/edit', [MachineController::class, 'edit'])->name('machine.edit');
+// Route middleware for login first
+Route::middleware(['auth'])->group(function () {
+    // Machine
+    Route::get('/machines', [MachineController::class, 'index'])->name('machine.home');
+    Route::get('/machine/{id}', [MachineController::class, 'show'])->name('machine.details');
+    Route::get('/machine/{id}/edit', [MachineController::class, 'edit'])->name('machine.edit');
+    
+    // Molding
+    Route::get('/moldings', [MoldingController::class, 'index'])->name('molding.home');
+    Route::get('/molding/{id}', [MoldingController::class, 'show'])->name('molding.details');
+    Route::get('/molding/{id}/edit', [MoldingController::class, 'edit'])->name('molding.edit');
+});
