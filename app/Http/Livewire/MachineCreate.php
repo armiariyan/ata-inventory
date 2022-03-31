@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Machine;
+namespace App\Http\Livewire;
 
 use Livewire\WithFileUploads;
 use App\Models\Machine;
@@ -18,7 +18,7 @@ class MachineCreate extends Component
 
     public function render()
     {
-        return view('livewire.machine.machine-create');
+        return view('livewire.machine-create');
     }
 
     public function store()

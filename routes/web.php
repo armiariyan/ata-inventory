@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MachineController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,4 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/machine', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/machines', [MachineController::class, 'index'])->name('machine');

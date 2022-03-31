@@ -7,7 +7,7 @@
     @endif
     
     {{-- Title --}}
-    <h4 class="text-end"> <span class="badge rounded-pill bg-success">Armia</span>  </h4>
+    <h4 class="text-end"> <span class="badge rounded-pill bg-success">Manage Data Machine</span>  </h4>
    
     <form wire:submit.prevent="store">
         @csrf
