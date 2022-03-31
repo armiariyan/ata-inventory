@@ -16,6 +16,10 @@ class MachineCreate extends Component
     public $notes;
     public $photo;
 
+    protected $listeners = [
+        'machineDeleted' => 'showDeletedAlert'
+    ];
+
     public function render()
     {
         return view('livewire.machine-create');
@@ -45,6 +49,10 @@ class MachineCreate extends Component
 
         $this->resetInput();
         $this->emit('machineStored');
+    }
+
+    public function showDeletedAlert() {
+        session()->flash('message', 'Data successfully deleted!');
     }
 
     private function resetInput()

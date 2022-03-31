@@ -18,6 +18,18 @@ class MachineTable extends Component
         ]);
     }
 
+    public function delete($id)
+    {
+        
+        // Get and delete old photo from directory
+        $oldPhoto = Machine::where('id', $id)->first(['photo'])->photo;
+        unlink(public_path('storage/' . $oldPhoto));
+        
+        Machine::find($id)->delete();
+
+        $this->emit('machineDeleted');
+    }
+
 
 
 }
