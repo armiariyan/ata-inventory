@@ -1,16 +1,14 @@
 <div>
+    
 
-    @if (session()->has('message'))
-    <div class="alert alert-success fw-bold alert-dismissible fade show fs-5">
-        {{ session('message') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+    {{-- @if ($statusUpdate) --}}
+        {{-- Connect to Machine Update --}}
+        {{-- @livewire('machine-update') --}}
+    {{-- @else --}}
+        {{-- Connect to Machine Create --}}
+        {{-- @livewire('machine-create')
+    @endif --}}
 
-    @endif
-
-    {{-- Connect to Machine Create --}}
-    @livewire('machine-create')
-   
     <table class="table table-striped table-hover table-bordered">
         <thead class="">
             <tr>
@@ -34,8 +32,8 @@
                     <td style="max-width: 200px" >{{ $machine->notes }}</td>
                     <td>
                         <div class="text-center">
-                            <button class="btn btn-sm btn-info text-white">Edit</button>
-                            <button class="btn btn-sm btn-danger text-white" onclick="alert('Are you sure want to delete this data?')">Delete</button>
+                            <button wire:click="getMachine( {{ $machine->id }} )" class="btn btn-sm btn-info text-white">Edit</button>
+                            <button class="btn btn-sm btn-danger text-white" onclick="confirm('Are you sure want to delete this data?')">Delete</button>
                         </div>
                     </td>
                 </tr>

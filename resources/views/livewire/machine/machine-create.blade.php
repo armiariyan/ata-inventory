@@ -1,9 +1,13 @@
 <div>
-
-   
-
+    @if (session()->has('message'))
+        <div class="alert alert-success fw-bold alert-dismissible fade show fs-5">
+            {{ session('message') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+    
     {{-- Title --}}
-    <h4 class="text-end"> <span class="badge rounded-pill bg-success">Manage Machine Data</span>  </h4>
+    <h4 class="text-end"> <span class="badge rounded-pill bg-success">Armia</span>  </h4>
    
     <form wire:submit.prevent="store">
         @csrf

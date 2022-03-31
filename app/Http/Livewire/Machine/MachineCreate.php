@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Machine;
 
 use Livewire\WithFileUploads;
 use App\Models\Machine;
 use Livewire\Component;
 
+
 class MachineCreate extends Component
 {
     use WithFileUploads;
 
-    // public $photo;
     public $name;
     public $type;
     public $notes;
@@ -18,21 +18,21 @@ class MachineCreate extends Component
 
     public function render()
     {
-        return view('livewire.machine-create');
+        return view('livewire.machine.machine-create');
     }
 
     public function store()
     {
         // Validate Input
-
         $this->validate([
             'name' => 'required|min:3',
             'type' => 'required',
             'photo' => 'required|max:5120|mimes:png,jpg,jpeg'
-        ]);
+        ]); 
 
         // Configure photo folder
-        $filename = $this->photo->store('photos', 'public');
+        $name = $this->photo->getClientOriginalName();
+        $filename = $this->photo->storeAs('photos', $name, 'public');
 
         Machine::create([
             'name' => $this->name,
@@ -41,17 +41,19 @@ class MachineCreate extends Component
             'photo' => $filename,
         ]);
 
-        $this->resetInput();
+        session()->flash('message', 'Data successfully added!');
 
+        $this->resetInput();
         $this->emit('machineStored');
     }
 
     private function resetInput()
     {
-        // $this->photo = null;
+        $this->photo = null;
         $this->name = null;
         $this->type = null;
         $this->notes = null;
-        $this->photo = null;
     }
 }
+
+
