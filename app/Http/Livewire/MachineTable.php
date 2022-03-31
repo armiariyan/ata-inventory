@@ -29,7 +29,4 @@ class MachineTable extends Component
 
         $this->emit('machineDeleted');
     }
-
-
-
 }
