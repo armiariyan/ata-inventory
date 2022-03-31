@@ -1,14 +1,4 @@
 <div>
-    
-
-    {{-- @if ($statusUpdate) --}}
-        {{-- Connect to Machine Update --}}
-        {{-- @livewire('machine-update') --}}
-    {{-- @else --}}
-        {{-- Connect to Machine Create --}}
-        {{-- @livewire('machine-create')
-    @endif --}}
-
     <table class="table table-striped table-hover table-bordered">
         <thead class="">
             <tr>
@@ -32,7 +22,8 @@
                     <td style="max-width: 200px" >{{ $machine->notes }}</td>
                     <td>
                         <div class="text-center">
-                            <button wire:click="getMachine( {{ $machine->id }} )" class="btn btn-sm btn-info text-white">Edit</button>
+                            <a href="{{ route('machine.details',$machine->id) }}" class="btn btn-sm btn-success text-white">Detail</a>
+                            <a href="{{ route('machine.details',$machine->id) }}" class="btn btn-sm btn-info text-white">Edit</a>
                             <button class="btn btn-sm btn-danger text-white" onclick="confirm('Are you sure want to delete this data?')">Delete</button>
                         </div>
                     </td>

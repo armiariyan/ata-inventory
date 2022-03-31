@@ -20,4 +20,5 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/machines', [MachineController::class, 'index'])->name('machine');
+Route::get('/machines', [MachineController::class, 'index'])->name('machine.home');
+Route::get('/machine/{id}', [MachineController::class, 'show'])->name('machine.details');
