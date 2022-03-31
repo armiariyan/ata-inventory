@@ -23,7 +23,7 @@
                     <td>
                         <div class="text-center">
                             <a href="{{ route('machine.details',$machine->id) }}" class="btn btn-sm btn-success text-white">Detail</a>
-                            <a href="{{ route('machine.details',$machine->id) }}" class="btn btn-sm btn-info text-white">Edit</a>
+                            <a href="{{ route('machine.edit',$machine->id) }}" class="btn btn-sm btn-info text-white">Edit</a>
                             <button class="btn btn-sm btn-danger text-white" onclick="confirm('Are you sure want to delete this data?')">Delete</button>
                         </div>
                     </td>

@@ -30,8 +30,8 @@ class MachineCreate extends Component
             'photo' => 'required|max:5120|mimes:png,jpg,jpeg'
         ]); 
 
-        // Configure photo folder
-        $name = $this->photo->getClientOriginalName();
+        // Configure file photo name to unique and folder to put the file
+        $name = time() . '_' . $this->photo->getClientOriginalName();
         $filename = $this->photo->storeAs('photos', $name, 'public');
 
         Machine::create([

@@ -7,9 +7,9 @@
     @endif
     
     {{-- Title --}}
-    <h4 class=""> <span class="badge rounded-pill bg-success">Manage Data Machine</span>  </h4>
+    <h4 class=""> <span class="badge rounded-pill bg-warning">Update Data Machine</span>  </h4>
    
-    <form wire:submit.prevent="store">
+    <form wire:submit.prevent="update">
         @csrf
         <div class="form-group">
             <div class="row">
@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="d-grid py-4">
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-primary" type="submit">Update</button>
         </div>
     </form>
 

@@ -12,13 +12,13 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-12">
-            
-            <div class="card">
+            <a href="{{ route('machine.home') }}" class="btn btn-lg btn-secondary text-white mb-4">Back</a>
+            <div class="card">    
+
                 <div class="card-header">{{ __('Dashboard Machine') }}</div>
 
                 <div class="card-body">
-                    @livewire('machine-create')
-                    @livewire('machine-table')
+                    @livewire('machine-edit', ['machine' => $machine])
                 </div>
             </div>
         </div>

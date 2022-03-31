@@ -20,5 +20,13 @@ class MachineController extends Controller
         ]);
     }
 
+    public function edit($id)
+    {
+        $machine = Machine::where('id', $id)->first();
+        return view('machines.edit', [ 
+            'machine' => $machine
+        ]);
+    }
+
 
 }

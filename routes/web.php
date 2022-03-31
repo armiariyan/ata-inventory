@@ -22,3 +22,4 @@ Auth::routes();
 
 Route::get('/machines', [MachineController::class, 'index'])->name('machine.home');
 Route::get('/machine/{id}', [MachineController::class, 'show'])->name('machine.details');
+Route::get('/machine/{id}/edit', [MachineController::class, 'edit'])->name('machine.edit');
