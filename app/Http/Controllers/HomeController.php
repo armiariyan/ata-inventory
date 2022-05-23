@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // Abis login, tampilin halaman index machine
         return view('livewire.machine-index');
     }
 }

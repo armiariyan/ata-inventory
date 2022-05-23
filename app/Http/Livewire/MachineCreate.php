@@ -11,6 +11,7 @@ class MachineCreate extends Component
 {
     use WithFileUploads;
 
+    // Untuk menangkap inputan dari form sesuai identitasnya
     public $name;
     public $type;
     public $notes;
@@ -36,8 +37,10 @@ class MachineCreate extends Component
 
         // Configure file photo name to unique and folder to put the file
         $name = time() . '_' . $this->photo->getClientOriginalName();
+        // Untuk ngatur penyimpanan foto. Parameter ke 1 itu nama folder, ke 2 itu nama file, ke 3 itu aksesibilitas
         $filename = $this->photo->storeAs('photos', $name, 'public');
 
+        // Simpen ke database
         Machine::create([
             'name' => $this->name,
             'type' => $this->type,
@@ -45,9 +48,13 @@ class MachineCreate extends Component
             'photo' => $filename,
         ]);
 
+        // Buat bikin alert
         session()->flash('message', 'Data successfully added!');
 
+        // Ngosongin input form
         $this->resetInput();
+
+        // Jalanin fungsi machineStored, untuk merender ulang komponen yang berubah
         $this->emit('machineStored');
     }
 

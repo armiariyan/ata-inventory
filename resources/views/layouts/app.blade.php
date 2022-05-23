@@ -141,6 +141,7 @@
         @endauth
 
         <main class="py-4">
+            {{-- Penempatan komponen --}}
             @yield('content')
         </main>
     </div>

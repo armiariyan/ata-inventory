@@ -9,5 +9,7 @@ class Machine extends Model
 {
 
     use HasFactory;
+    // lo bisa milih, kolom mana aja yang bisa dirubah/diedit
     protected $guarded = [];
+    
 }

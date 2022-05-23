@@ -25,8 +25,10 @@ class MachineTable extends Component
         $oldPhoto = Machine::where('id', $id)->first(['photo'])->photo;
         unlink(public_path('storage/' . $oldPhoto));
         
+        // Perintah ngedelete data di database
         Machine::find($id)->delete();
 
+        // Render ulang table
         $this->emit('machineDeleted');
     }
 }
